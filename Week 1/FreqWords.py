@@ -14,10 +14,8 @@ def read_string_and_k_from_file(filename):
     """
 
     sequence, k = open(filename).readlines()
-
     # Remove any trailing whitespace
     sequence = sequence.strip()
-
     # ensure k really is an int
     k = int(k)
 
@@ -31,7 +29,7 @@ def build_kmer_map(sequence, k):
     :return: A map of each k-mer and associated count.
     """
 
-    # Built the map for all possible k-mers with their counts
+    # Build the map for all possible k-mers with their counts
     kmers = {}
 
     for i in range(len(sequence) - k):
@@ -46,10 +44,9 @@ def build_kmer_map(sequence, k):
 
 def find_most_freq_kmers(map):
     """
-
     :rtype : list of strings
     :param map: a map (hash table / dictionary) of kmers with counts
-    :return: a list of the most frequently occuring kmers (could be more than one
+    :return: a list of the most frequently occurring kmers (could be more than one
     """
 
     # Now search map for high scorers, there could be more than one.
@@ -62,13 +59,17 @@ def find_most_freq_kmers(map):
             high_score = count
             found_kmers = [kmer]
         elif count == high_score:
-            # another kmer with the saem score, so keep this too
+            # another kmer with the same score, so keep this too
             found_kmers.append(kmer)
 
     return found_kmers
 
 
-def main(argv=None):
+def main(argv = None):
+    """
+    :param argv: the command line args
+    :return: nothing
+    """
     if argv is None:
         argv = sys.argv
 
