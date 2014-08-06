@@ -37,12 +37,12 @@ def find_kmers_in_seq(sequence, k, t):
 
     for i in range(len(sequence) - k + 1):
         current_kmer = sequence[i: i + k]
-        if kmers.has_key(current_kmer):
+        if current_kmer in kmers:
             kmers[current_kmer].append(i)
         else:
             kmers[current_kmer] = [i]
 
-    return [(kmer, indices) for kmer, indices in kmers.iteritems() if len(indices) >= t]
+    return [(kmer, indices) for kmer, indices in kmers.items() if len(indices) >= t]
 
 
 def main(argv=None):
