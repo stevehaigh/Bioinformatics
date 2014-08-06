@@ -11,9 +11,10 @@ def read_string_from_file(filename):
     :return: The sequence string from the file as a string and the value of k as an integer.
     """
 
-    contents = open(filename).readlines()
+    with open(filename) as contents:
+        foo = contents.readlines()
 
-    return contents
+    return foo
 
 
 def main(argv=None):
