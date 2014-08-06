@@ -13,7 +13,7 @@ def read_string_and_k_from_file(filename):
     :return: The sequence string from the file as a string and the value of k as an integer.
     """
 
-    sequence, k = open(filename).readlines()
+    sequence, k = open(filename, 'ar').readlines()
     # Remove any trailing whitespace
     sequence = sequence.strip()
     # ensure k really is an int
