@@ -1,1 +1,1 @@
-## Answers to exercises from the Coursera course ##
+## Answers to exercises from the online course ##
