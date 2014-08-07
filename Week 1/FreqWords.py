@@ -13,7 +13,7 @@ def read_string_and_k_from_file(filename):
     :return: The sequence string from the file as a string and the value of k as an integer.
     """
 
-    sequence, k = open(filename, 'ar').readlines()
+    sequence, k = open(filename, 'r').readlines()
     # Remove any trailing whitespace
     sequence = sequence.strip()
     # ensure k really is an int
@@ -79,7 +79,7 @@ def main(argv = None):
     kmer_map = build_kmer_map(seq, k)
     most_freq_kmers = find_most_freq_kmers(kmer_map)
 
-    print(most_freq_kmers)
+    print(" ".join(most_freq_kmers))
 
 
 if __name__ == "__main__":
