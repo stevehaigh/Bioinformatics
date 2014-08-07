@@ -7,7 +7,7 @@ import sys
 
 def read_string_from_file(filename):
     """
-    :rtype : tuple
+    :rtype : string
     :param filename: The name of the file to read.
     :return: The sequence string from the file as a string and the value of k as an integer.
     """
