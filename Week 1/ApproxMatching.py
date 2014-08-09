@@ -37,7 +37,6 @@ def is_approx_match(pattern, sequence, tolerance):
 
     return True
 
-
 def main(argv=None):
     """
     :param argv: the command line args
