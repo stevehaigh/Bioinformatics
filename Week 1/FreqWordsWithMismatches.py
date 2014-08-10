@@ -28,13 +28,23 @@ def read_data_from_file(filename):
 
 
 def find_maxes(kmers):
+    """
+    :param kmers: a list of k-mers with counts
+    :return: the most frequently occuring k-mer(s).
+    """
     max_value = max(kmers.values())
     result = [item[0] for item in kmers.items() if item[1] == max_value]
     return result
 
 
 def find_freq_words_with_mismatches(seq, k, d):
-    # get al kmers of length k
+    """
+    get all kmers of length k
+    :param seq: sequence of bases to search
+    :param k: length of k-mer
+    :param d: number of mismatches per k-mer
+    :return: the most frequently occurring k-mers with mismatches.
+    """
     kmers = utils.find_kmers_with_mismatches(seq, k, d)
     result = find_maxes(kmers)
     return result

@@ -1,8 +1,7 @@
 """
+Find clumps. I.e. find k-mers in given sub-strings of a sequence.
 """
-
 import sys
-
 
 def read_strings_from_file(filename):
     """
@@ -10,13 +9,11 @@ def read_strings_from_file(filename):
     :param filename: The name of the file to read.
     :return: The sequence string from the file as a string and the value of k as an integer.
     """
-
     with open(filename) as contents:
         seq, nums = contents.readlines()
 
     seq = seq.strip()
     k, L, t = nums.split()
-
     k = int(k)
     L = int(L)
     t = int(t)
@@ -62,7 +59,6 @@ def main(argv=None):
     # find k-mers of length k with count > t in sub-sequence from i to i + L
     kmers = find_kmers_in_seq(seq, k, t)
     clumps = set()
-
 
     # check for clumping
     for kmer in kmers:

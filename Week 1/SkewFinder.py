@@ -1,9 +1,7 @@
 """
 Find positions of min skew in a sequence
 """
-
 import sys
-
 
 def read_string_from_file(filename):
     """
@@ -11,10 +9,8 @@ def read_string_from_file(filename):
     :param filename: The name of the file to read.
     :return: The sequence string from the file as a string and the value of k as an integer.
     """
-
     with open(filename) as contents:
         seq = contents.readlines()[0].strip()
-
     return seq
 
 
