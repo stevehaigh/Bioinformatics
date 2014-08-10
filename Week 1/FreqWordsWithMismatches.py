@@ -1,0 +1,56 @@
+"""
+    File: FreqWordsWithMismatches
+    Author: steve
+    Created: 10/08/2014
+    
+"""
+import sys
+import Tools.SequenceUtils as utils
+
+
+def read_data_from_file(filename):
+    """
+    :rtype : tuple
+    :param filename: The name of the file to read.
+    :return: The sequence string from the file as a string and the value of k as an integer.
+    """
+    if not filename:
+        return "ACGTTGCATGTCGCATGATGCATGAGAGCT", 4, 1
+
+    with open(filename) as contents:
+        lines = contents.readlines()
+        sequence = lines[0].strip()
+        k, d = lines[1].split(" ")
+        k = int(k)
+        d = int(d)
+
+    return sequence, k, d
+
+
+def find_maxes(kmers):
+    max_value = max(kmers.values())
+    result = [item[0] for item in kmers.items() if item[1] == max_value]
+    return result
+
+
+def find_freq_words_with_mismatches(seq, k, d):
+    # get al kmers of length k
+    kmers = utils.find_kmers_with_mismatches(seq, k, d)
+    result = find_maxes(kmers)
+    return result
+
+
+def main(argv=None):
+    """
+    :param argv: the command line args
+    :return: nothing
+    """
+    if argv is None:
+        argv = sys.argv
+    seq, k, d = read_data_from_file(argv[1])
+    result = find_freq_words_with_mismatches(seq, k, d)
+    print " ".join(result)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

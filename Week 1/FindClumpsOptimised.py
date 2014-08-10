@@ -69,7 +69,7 @@ def main(argv=None):
         # if there are more than t indices with a range L - k then it's a clump
         # print(u"Checking kmer {0:s}".format(kmer[0]))
         indices = list(kmer[1])
-        for i in range(len(indices) - t + 1):
+        for i in xrange(len(indices) - t + 1):
             if (indices[i + t - 1] - indices[i]) <= L - k:
                 clumps.add(kmer[0])
                 break

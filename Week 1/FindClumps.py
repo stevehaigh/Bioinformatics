@@ -33,7 +33,7 @@ def find_kmers_in_seq(sequence, k, t):
     # Build the map for all possible k-mers with their counts
     kmers = {}
 
-    for i in range(len(sequence) - k):
+    for i in xrange(len(sequence) - k + 1):
         current_kmer = sequence[i: i + k]
         if kmers.has_key(current_kmer):
             kmers[current_kmer] += 1

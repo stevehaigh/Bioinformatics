@@ -14,7 +14,6 @@ def read_string_from_file(filename):
     :param filename: The name of the file to read.
     :return: The sequence string from the file as a string and the value of k as an integer.
     """
-
     with open(filename) as contents:
         lines = contents.readlines()
         pattern = lines[0].strip()
@@ -36,6 +35,7 @@ def is_approx_match(pattern, sequence, tolerance):
                 return False
 
     return True
+
 
 def main(argv=None):
     """
