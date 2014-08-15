@@ -78,8 +78,6 @@ def int_to_sequence(num, length):
 
 
 cached_similar_kmers = {}
-
-
 def make_all_permutations_of_kmer(kmer, d):
     """
 	Computes all alternate permutations of a k-mer with d mismatches.
@@ -111,7 +109,7 @@ def find_all_single_permutations(seq):
 
 def permute_single_letter(seq, i):
     """
-	Find all permutationso a k-mer that are 1 edit away from the original.
+	Find all permutations of a k-mer that are 1 edit away from the original.
 	"""
     result = []
     for b in ['A', 'C', 'G', 'T']:
@@ -158,7 +156,7 @@ def find_kmers_with_mismatches(sequence, k, d):
 	Finds all k-mers in the sequence of length k, allowing for up to d mismatches per k-mer.
 	"""
     kmers = {}
-    for i in xrange(len(sequence) - k + 1):
+    for i in range(len(sequence) - k + 1):
         current_kmer = sequence[i: i + k]
         kmer_and_mismatches = set([current_kmer] + make_all_permutations_of_kmer(current_kmer, d))
         for kmer in kmer_and_mismatches:
@@ -175,7 +173,7 @@ def find_freq_words_with_mismatches_and_reverse_compliments(sequence, k, d):
 	Finds all k-mers in the sequence of length k, allowing for up to d mismatches per k-mer and reverse compliments.
 	"""
     kmers = {}
-    for i in xrange(len(sequence) - k + 1):
+    for i in range(len(sequence) - k + 1):
         current_kmer = sequence[i: i + k]
         kmer_and_mismatches = set([current_kmer] + make_all_permutations_of_kmer(current_kmer, d))
         reverse_kmers = set(
