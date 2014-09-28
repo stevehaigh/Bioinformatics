@@ -52,6 +52,8 @@ def main(argv=None):
         if is_approx_match(pattern, sequence[i:i + len(pattern)], tolerance):
             approx_matches.append(i)
 
+    print len(approx_matches)
+
     print " ".join(str(s) for s in approx_matches)
 
 

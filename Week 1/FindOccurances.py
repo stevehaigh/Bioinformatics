@@ -46,7 +46,9 @@ def main(argv=None):
 
     result = find_all_matches(sequence, kmer)
 
-    print " ".join(list(result))
+    listed = list(result)
+    print len(listed)
+    print " ".join(listed)
 
 
 if __name__ == "__main__":
