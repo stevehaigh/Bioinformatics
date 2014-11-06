@@ -22,11 +22,13 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    seq = read_string_from_file(argv[1])
-
-    cur_skew = 0;
-    min_skew = 1000;
+    ##seq = read_string_from_file(argv[1])
+    seq = "GATACACTTCCCAGTAGGTACTG"
+    cur_skew = 0
+    min_skew = 1000
+    max_skew = 0
     skew_pos = []
+    max_skew_pos = []
 
     for i, b in enumerate(seq):
         if b == 'G':
@@ -40,7 +42,14 @@ def main(argv=None):
         elif cur_skew == min_skew:
             skew_pos.append(i+1)
 
+        if cur_skew > max_skew:
+            max_skew = cur_skew
+            max_skew_pos = [i+1]
+        elif cur_skew == max_skew:
+            max_skew_pos.append(i+1)
+
     print " ".join(str(s) for s in skew_pos)
+    print " ".join(str(s) for s in max_skew_pos)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 import unittest
-from Tools.Amino import Amino
-from Tools.CodonTable import CodonTable
+from . import Amino
+from . import CodonTable
 
 class TestAminoClass(unittest.TestCase):
 
@@ -13,7 +13,7 @@ class TestAminoClass(unittest.TestCase):
         codon2 = "GCC"
         codons = [codon1, codon2]
 
-        amino = Amino(name, tla, letter, codons)
+        amino = Amino.Amino(name, tla, letter, codons)
 
         self.assertEqual(amino.name, name)
         self.assertEqual(amino.tla, tla)

@@ -6,7 +6,6 @@
 """
 import sys
 
-
 def read_string_from_file(filename):
     """
     :rtype : tuple
@@ -44,7 +43,10 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    pattern, sequence, tolerance = read_string_from_file(argv[1])
+    ##pattern, sequence, tolerance = read_string_from_file(argv[1])
+    sequence = "CATGCCATTCGCATTGTCCCAGTGA"
+    pattern = "CCC"
+    tolerance = 2
 
     approx_matches = []
 

@@ -50,7 +50,11 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    seq, k, L, t = read_strings_from_file(argv[1])
+    ##seq, k, L, t = read_strings_from_file(argv[1])
+    seq = "GCACAAGGCCGACAATAGGACGTAGCCTTGAAGACGACGTAGCGTGGTCGCATAAGTACAGTAGATAGTACCTCCCCCGCGCATCCTATTATTAAGTTAATT"
+    k = 4
+    L = 30
+    t = 3
 
     # find kmers of length k occurring in runs of length L and report if there are more than t of them
     if len(seq) < L:
@@ -71,6 +75,7 @@ def main(argv=None):
                 break
 
     print(len(clumps))
+    print(" ".join(clumps))
 
 
 if __name__ == "__main__":
