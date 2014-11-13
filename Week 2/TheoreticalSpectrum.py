@@ -63,13 +63,18 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    peptide = "ESSDRQILSLWVSDM"
+    # #peptide = "PEEP"
 
     # #lin_spec = linear_spectrum(peptide)
-    # #print(' '.join(map(str, lin_spec)))
+    ##print(' '.join(map(str, lin_spec)))
 
-    cyc_spec = cyclic_spectrum(peptide)
-    print(' '.join(map(str, cyc_spec)))
+    peptides = ["MAMA"]
+
+    for peptide in peptides:
+        spec = cyclic_spectrum(peptide)
+        print(' '.join(map(str, spec)))
+
+
 
 
 if __name__ == "__main__":
