@@ -5,6 +5,7 @@
     
 """
 import sys
+
 import Tools.SequenceUtils as utils
 
 
@@ -29,7 +30,6 @@ def read_data_from_file(filename):
 
 def find_maxes(kmers):
     """
-    Finds the most frequently occuring k-mers in a list.
     :param kmers: a list of k-mers with counts
     :return: the most frequently occuring k-mer(s).
     """
@@ -38,15 +38,15 @@ def find_maxes(kmers):
     return result
 
 
-def find_freq_words_with_mismatches_etc(seq, k, d):
+def find_freq_words_with_mismatches(seq, k, d):
     """
     get all kmers of length k
     :param seq: sequence of bases to search
     :param k: length of k-mer
     :param d: number of mismatches per k-mer
-    :return: the most frequently occurring k-mers with mismatches and compliments.
+    :return: the most frequently occurring k-mers with mismatches.
     """
-    kmers = utils.find_freq_words_with_mismatches_and_reverse_compliments(seq, k, d)
+    kmers = utils.find_kmers_with_mismatches(seq, k, d)
     result = find_maxes(kmers)
     return result
 
@@ -59,7 +59,7 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
     seq, k, d = read_data_from_file(argv[1])
-    result = find_freq_words_with_mismatches_etc(seq, k, d)
+    result = find_freq_words_with_mismatches(seq, k, d)
     print " ".join(result)
 
 

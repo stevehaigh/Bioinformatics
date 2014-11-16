@@ -75,7 +75,7 @@ def main(argv=None):
         if read_matches_peptide(read, peptide):
             matches.append(read)
         revc = read[::-1].replace('A', 'u').replace('U', 'a').replace('C', 'g').replace('G', 'c').upper()
-        ##print(revc)
+        # #print(revc)
         if read_matches_peptide(revc, peptide):
             matches.append(read)
             ##print(".......")

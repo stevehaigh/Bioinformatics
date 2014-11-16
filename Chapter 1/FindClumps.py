@@ -1,5 +1,6 @@
 import sys
 
+
 def read_strings_from_file(filename):
     """
     :rtype : tuple

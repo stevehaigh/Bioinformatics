@@ -1,4 +1,3 @@
-
 """
     Get the most frequent k-mers for a given k from an input string
 """
@@ -65,7 +64,7 @@ def find_most_freq_kmers(map):
     return found_kmers
 
 
-def main(argv = None):
+def main(argv=None):
     """
     :param argv: the command line args
     :return: nothing

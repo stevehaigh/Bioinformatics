@@ -3,6 +3,7 @@ Find clumps. I.e. find k-mers in given sub-strings of a sequence.
 """
 import sys
 
+
 def read_strings_from_file(filename):
     """
     :rtype : tuple
@@ -50,7 +51,7 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    ##seq, k, L, t = read_strings_from_file(argv[1])
+    # #seq, k, L, t = read_strings_from_file(argv[1])
     seq = "GCACAAGGCCGACAATAGGACGTAGCCTTGAAGACGACGTAGCGTGGTCGCATAAGTACAGTAGATAGTACCTCCCCCGCGCATCCTATTATTAAGTTAATT"
     k = 4
     L = 30

@@ -27,8 +27,9 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    ##lines = read_string_from_file(argv[1])
-    lines = ["CTTGAAGTGGACCTCTAGTTCCTCTACAAAGAACAGGTTGACCTGTCGCGAAG","ATGCCTTACCTAGATGCAATGACGGACGTATTCCTTTTGCCTCAACGGCTCCT"]
+    # #lines = read_string_from_file(argv[1])
+    lines = ["CTTGAAGTGGACCTCTAGTTCCTCTACAAAGAACAGGTTGACCTGTCGCGAAG",
+             "ATGCCTTACCTAGATGCAATGACGGACGTATTCCTTTTGCCTCAACGGCTCCT"]
     count = 0
 
     for i, (char1, char2) in enumerate(zip(lines[0], lines[1])):
@@ -36,7 +37,6 @@ def main(argv=None):
             count += 1
 
     print count
-
 
 
 if __name__ == "__main__":
