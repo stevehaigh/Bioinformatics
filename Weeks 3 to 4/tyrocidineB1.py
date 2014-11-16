@@ -5,29 +5,31 @@
     
 """
 import sys
-from Tools.Amino import Amino
+
 from Tools.CodonTable import CodonTable
 
-protein_mapping = {"His":"H",
-                      "Gln":"Q",
-                      "Pro":"P",
-                      "Arg":"R",
-                      "Leu":"L",
-                      "Asp":"D",
-                      "Glu":"E",
-                      "Ala":"A",
-                      "Gly":"G",
-                      "Val":"V",
-                      "Tyr":"Y",
-                      "Ser":"S",
-                      "Cys":"C",
-                      "Trp":"W",
-                      "Phe":"F",
-                      "Asn":"N",
-                      "Lys":"K",
-                      "Thr":"T",
-                      "Ile":"I",
-                      "Met":"M"}
+
+protein_mapping = {"His": "H",
+                   "Gln": "Q",
+                   "Pro": "P",
+                   "Arg": "R",
+                   "Leu": "L",
+                   "Asp": "D",
+                   "Glu": "E",
+                   "Ala": "A",
+                   "Gly": "G",
+                   "Val": "V",
+                   "Tyr": "Y",
+                   "Ser": "S",
+                   "Cys": "C",
+                   "Trp": "W",
+                   "Phe": "F",
+                   "Asn": "N",
+                   "Lys": "K",
+                   "Thr": "T",
+                   "Ile": "I",
+                   "Met": "M"}
+
 
 def main(argv=None):
     """
@@ -42,7 +44,6 @@ def main(argv=None):
         table = CodonTable()
         aminoCount = 1
 
-
         for p in tyrList:
             codons = table.get_codons_for_amino(protein_mapping[p])
             print(p, " ", len(codons))
@@ -51,7 +52,7 @@ def main(argv=None):
         print aminoCount
         aminoCount = 1
         print("MASS")
-        for p in ['M','A', 'S', 'S']:
+        for p in ['M', 'A', 'S', 'S']:
             codons = table.get_codons_for_amino(p)
             print(p, " ", len(codons))
             aminoCount *= len(codons)

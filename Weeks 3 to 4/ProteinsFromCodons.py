@@ -5,19 +5,19 @@
     
 """
 import sys
-from Tools.Amino import Amino
+
 from Tools.CodonTable import CodonTable
 
 
 def GetCodonsFromFile():
-
     return open("codons1.txt").readline()
 
-    ##return "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"
+    # #return "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"
+
 
 def codonGenerator(data):
     for i in range(0, len(data), 3):
-            yield data[i:i+3]
+        yield data[i:i + 3]
 
 
 def main(argv=None):
@@ -32,15 +32,15 @@ def main(argv=None):
     codons = GetCodonsFromFile()
     protein = ""
 
-    seqs = ["CCGAGGACCGAAAUCAAC","CCCCGUACGGAGAUGAAA","CCCAGGACUGAGAUCAAU","CCUCGUACUGAUAUUAAU"]
+    seqs = ["CCGAGGACCGAAAUCAAC", "CCCCGUACGGAGAUGAAA", "CCCAGGACUGAGAUCAAU", "CCUCGUACUGAUAUUAAU"]
 
     for dna_seq in seqs:
         protein = ""
         for c in codonGenerator(dna_seq):
-
             protein += table.get_amino_for_codon(c).single_letter()
 
         print(dna_seq, protein)
+
 
 if __name__ == "__main__":
     sys.exit(main())

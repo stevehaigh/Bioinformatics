@@ -66,15 +66,13 @@ def main(argv=None):
     # #peptide = "PEEP"
 
     # #lin_spec = linear_spectrum(peptide)
-    ##print(' '.join(map(str, lin_spec)))
+    # #print(' '.join(map(str, lin_spec)))
 
     peptides = ["MAMA"]
 
     for peptide in peptides:
         spec = cyclic_spectrum(peptide)
         print(' '.join(map(str, spec)))
-
-
 
 
 if __name__ == "__main__":
