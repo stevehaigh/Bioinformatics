@@ -2,6 +2,8 @@
 Find clumps. I.e. find k-mers in given sub-strings of a sequence.
 """
 import sys
+import time
+
 
 
 def read_strings_from_file(filename):
@@ -51,7 +53,10 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    # #seq, k, L, t = read_strings_from_file(argv[1])
+    start = time.clock()
+    ##seq, k, L, t = read_strings_from_file("ecoli.txt")
+
+    ##seq, k, L, t = read_strings_from_file(argv[1])
     seq = "GCACAAGGCCGACAATAGGACGTAGCCTTGAAGACGACGTAGCGTGGTCGCATAAGTACAGTAGATAGTACCTCCCCCGCGCATCCTATTATTAAGTTAATT"
     k = 4
     L = 30
@@ -61,22 +66,36 @@ def main(argv=None):
     if len(seq) < L:
         sys.exit(2)  # can't work with an input less than min length
 
+    duration = time.clock() - start
+    print("file read: ", duration)
+    start = time.clock()
+
     # find k-mers of length k with count > t in sub-sequence from i to i + L
     kmers = find_kmers_in_seq(seq, k, t)
-    clumps = set()
+
+    duration = time.clock() - start
+    print("build indexes: ", duration)
+    start = time.clock()
+
 
     # check for clumping
+    indexRange = L - k # if a k-mer has at least t indices in this range it's a clump
+    count = 0
+
     for kmer in kmers:
         # if there are more than t indices with a range L - k then it's a clump
         # print(u"Checking kmer {0:s}".format(kmer[0]))
-        indices = list(kmer[1])
-        for i in xrange(len(indices) - t + 1):
-            if (indices[i + t - 1] - indices[i]) <= L - k:
-                clumps.add(kmer[0])
+        indices = kmer[1]
+        for i in range(len(indices) - t + 1):
+            if (indices[i + t - 1] - indices[i]) <= indexRange:
+                count += 1
+                ##clumps.add(kmer[0])
                 break
 
-    print(len(clumps))
-    print(" ".join(clumps))
+    duration = time.clock() - start
+    ##print(len(clumps))
+    print(count)
+    print("find clumps: ", duration)
 
 
 if __name__ == "__main__":

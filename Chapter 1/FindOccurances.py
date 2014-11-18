@@ -13,10 +13,8 @@ def read_kmer_and_sequence_from_file(filename):
     """
 
     kmer, sequence = open(filename).readlines()
-
     kmer = kmer.strip()
     sequence = sequence.strip()
-
     return kmer, sequence
 
 
