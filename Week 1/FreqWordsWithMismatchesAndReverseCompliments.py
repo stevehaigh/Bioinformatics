@@ -60,7 +60,7 @@ def main(argv=None):
         argv = sys.argv
     seq, k, d = read_data_from_file(argv[1])
     result = find_freq_words_with_mismatches_etc(seq, k, d)
-    print " ".join(result)
+    print(" ".join(result))
 
 
 if __name__ == "__main__":

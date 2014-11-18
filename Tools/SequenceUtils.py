@@ -70,9 +70,10 @@ def int_to_sequence(num, length):
     """
     result = ""
     for _ in range(length):
-        curr_base = base(num % 4)
+        temp = num % 4
+        curr_base = base(temp)
         result = curr_base + result
-        num = num / 4
+        num = num // 4
 
     return result
 
