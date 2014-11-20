@@ -10,8 +10,7 @@
 
     Also, various tools to manipulate sequences, find k-mers etc/
 """
-
-from array import array
+from builtins import ValueError, range, str, len, set, zip
 
 
 def int_value(b):
@@ -126,13 +125,13 @@ def build_empty_kmer_cache(k):
 	Creates an empty map of all possible k-mers of the length k.
 	"""
     cache = {}
-    for i in xrange(4 ** k):
+    for i in range(4 ** k):
         cache[int_to_sequence(i, k)] = 0
     return cache
 
 
 def find_kmers_using_prebuilt_cache(kmers, sequence, k):
-    for i in xrange(len(sequence) - k + 1):
+    for i in range(len(sequence) - k + 1):
         kmers[sequence[i: i + k]] += 1
     return kmers
 
@@ -142,7 +141,7 @@ def find_exact_kmers(sequence, k):
 	Finds all the k-mers of length k in the sequence
 	"""
     kmers = {}
-    for i in xrange(len(sequence) - k + 1):
+    for i in range(len(sequence) - k + 1):
         current_kmer = sequence[i: i + k]
         if current_kmer in kmers:
             kmers[current_kmer] += 1
@@ -223,11 +222,11 @@ def is_approx_match(pattern, sequence, tolerance):
 
 def compute_kmers_slowly(seq, k):
     """
-    Experimental method to compoute k-mers using integer representation. 
+    Experimental method to compute k-mers using integer representation.
     It turns out to be quite slow, so do not use!
     :param seq: A sequence af ACGTs
     :param k: Length of kmer
-    :return: An of kmers counts, indexes in the array are the kmer integer representations.
+    :return: A list of kmers counts, indexes in the array are the kmer integer representations.
     """
 
     # size of array is max poss integer value which is length*4 - 1
@@ -246,7 +245,7 @@ def compute_kmers_slowly(seq, k):
 
 def compute_kmers_slowly2(seq, k):
     """
-    Another experimental method to compoute k-mers using integer representation. 
+    Another experimental method to compute k-mers using integer representation.
     It turns out to be even slower than the previous, so do not use!
     :param seq: A sequence af ACGTs
     :param k: Length of kmer
@@ -258,7 +257,7 @@ def compute_kmers_slowly2(seq, k):
     numeric_value = sequence_to_int(first_kmer)
     kmers[numeric_value] = 1
 
-    for i in xrange(k, len(seq)):
+    for i in range(k, len(seq)):
         new_val = int_value(seq[i])
         # shift the kmer up numerically...
         # knock of the most significant base from index, multiply by 4 and add the new value

@@ -5,7 +5,7 @@
     
 """
 import sys
-from builtins import range, set, len, sorted
+from builtins import range, set, len, sorted, all, str
 
 
 cached_similar_kmers = {}
@@ -85,11 +85,13 @@ def pattern_exists_in_each_dna(pattern, dnas, d):
     """
     Check if a pattern exists in ever dna string in the collection, with d mismatches allowed.
     """
-    for dna in dnas:
-        if not dna_contains_pattern(pattern, dna, d):
-            return False
+    # for dna in dnas:
+    # if not dna_contains_pattern(pattern, dna, d):
+    # return False
+    #
+    # return True
 
-    return True
+    return all(dna_contains_pattern(pattern, dna, d) for dna in dnas)
 
 
 def motif_enumeration(dna_collection, k, d):

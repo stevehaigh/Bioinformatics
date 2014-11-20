@@ -6,6 +6,8 @@
 """
 import sys
 import operator
+import time
+from builtins import range, len, sorted, max, sum, dict, list, map, int, str
 
 
 _all_masses = [57, 71, 87, 97, 99, 101, 103, 113, 114, 115, 128, 129, 131, 137, 147, 156, 163, 186]
@@ -201,8 +203,14 @@ def main(argv=None):
     m = 16
     n = 330
 
+    start = time.clock()
+
     data_as_list = list(map(int, data.split(' ')))
     result = convolution_cyclopeptide_sequencing(data_as_list, m, n)
+
+    end = time.clock()
+
+    print(end - start)
 
     print ("-".join(map(str, result)))
 
