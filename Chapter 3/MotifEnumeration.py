@@ -98,7 +98,7 @@ def motif_enumeration(dna_collection, k, d):
     """
     :param dna: a list of DNA strings.
     :param k: size of k-mer motifs to look for.
-    :param d: number of difference allowed.
+    :param d: number of differences allowed.
     :return: a list of motfis - k-mers appearing in every DNA string subject to at most d difference in bases.
     """
 
