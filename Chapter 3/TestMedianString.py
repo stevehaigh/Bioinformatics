@@ -100,3 +100,10 @@ class TestMediaString(unittest.TestCase):
         m = MedianString.MedianString(dna, 6)
         print(m)
 
+    def test_homework(self):
+        dna = """CTCGATGAGTAGGAAAGTAGTTTCACTGGGCGAACCACCCCGGCGCTAATCCTAGTGCCC
+GCAATCCTACCCGAGGCCACATATCAGTAGGAACTAGAACCACCACGGGTGGCTAGTTTC
+GGTGTTGAACCACGGGGTTAGTTTCATCTATTGTAGGAATCGGCTTCAAATCCTACACAG""".split('#n')
+
+        m = MedianString.MedianString(dna, 7)
+        print(m)

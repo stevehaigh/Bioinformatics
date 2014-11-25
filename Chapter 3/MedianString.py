@@ -4,7 +4,8 @@
     Created: 20/11/14
     
 """
-from builtins import zip, enumerate, len, Exception, range, min, sum
+from builtins import zip, enumerate, len, Exception, range, min, sum, sorted
+from os2emxpath import sep
 import sys
 
 
@@ -89,12 +90,20 @@ def MedianString(dna, k):
 
     distance = sys.maxsize
     median = ""
+    medians = []
 
     for kmer in build_all_kmers(k):
         d = DistanceBetweenPatternAndStrings(kmer, dna)
         if d < distance:
             distance = d
             median = kmer
+            medians = [kmer]
+        elif d == distance:
+            medians.append(kmer)
+
+    print("debug")
+    medians = sorted(medians)
+    print(*medians, sep='\n')
 
     return median
 
