@@ -31,7 +31,7 @@ TAGTACCGAGACCGAAAGAAGTATACAGGCGT
 TAGATCAAGTTTCAGGTGCACGTCGGTGAACC
 AATCCACCAGCTCCACGTGCAATGTTGGCCTA""".split('\n')
 
-        result = rms.rms_multiple(dna, k, t, 1000)
+        result = rms.rms_multiple(dna, k, t, 100)
 
         print(result)
 

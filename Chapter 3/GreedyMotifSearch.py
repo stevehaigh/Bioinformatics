@@ -53,7 +53,13 @@ def create_profile_with_pseudocounts(motifs, number_of_motifs):
         result['T'].append(1)
         for j in range(0, row_count):
             base = motifs[j][i]
-            result[base][i] += 1 / (row_count + 4)
+            result[base][i] += 1
+
+    for i in range(0, col_count):
+        for base in ['A', 'C', 'G', 'T']:
+            result[base][i] = result[base][i] / (row_count + 4)
+
+
 
     return result
 
