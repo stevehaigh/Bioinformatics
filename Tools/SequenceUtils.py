@@ -10,7 +10,7 @@
 
     Also, various tools to manipulate sequences, find k-mers etc/
 """
-from builtins import ValueError, range, str, len, set, zip
+from builtins import ValueError, range, str, len, set, zip, Exception
 
 
 def int_value(b):
@@ -271,3 +271,17 @@ def compute_kmers_slowly2(seq, k):
             kmers[numeric_value] = 1
 
     return kmers
+
+
+def each_kmer(sequence, k):
+    """
+    Helper to iterate through all k-mers of length k in sequence.
+    :param sequence: DNA sequence.
+    :param k: Integer.
+    :return: An iterator over sequence providing kmers of length k.
+    """
+    if len(sequence) < k:
+        raise Exception("Can't get kmers from sequence as it is smaller than the k: {1}".format(k))
+
+    for i in range(0, len(sequence) - k + 1):
+        yield sequence[i:i + k]
