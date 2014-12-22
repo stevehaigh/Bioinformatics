@@ -44,8 +44,8 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    coins = [13,5,3,1]
-    money = 18569
+    coins = [2,3]
+    money = 20
 
 
     print(str(dp_change(money, coins)))
