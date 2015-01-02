@@ -11,14 +11,14 @@ import Matrix
 def get_longest_path(m, n, down, right):
     """
     MANHATTANTOURIST(n, m, Down, Right)
-        s0, 0 ‚Üê 0
-        for i ‚Üê 1 to n
-            si, 0 ‚Üê si-1, 0 + downi, 0
-        for j ‚Üê 1 to m
-            s0, j ‚Üê s0, j‚àí1 + right0, j
-        for i ‚Üê 1 to n
-            for j ‚Üê 1 to m
-                si, j ‚Üê max{si - 1, j + downi, j, si, j - 1 + righti, j}
+        s0, 0 ‚?ê 0
+        for i ‚?ê 1 to n
+            si, 0 ‚?ê si-1, 0 + downi, 0
+        for j ‚?ê 1 to m
+            s0, j ‚?ê s0, j‚??1 + right0, j
+        for i ‚?ê 1 to n
+            for j ‚?ê 1 to m
+                si, j ‚?ê max{si - 1, j + downi, j, si, j - 1 + righti, j}
         return sn, m
     :param m:
     :param n:
