@@ -44,18 +44,24 @@ Y -2 -2 -3 -2  3 -3  2 -1 -2 -1 -1 -2 -3 -1 -2 -2 -2 -1  2  7""".split('\n')
     return blosum_lookup
 
 
-def lcs_backtrack(v, w):
+def lcs_backtrack(v, w, sigma):
     """
     Finds the LCS backtrack matrix for two strings, v and w
     """
-    print(v,w)
-    indel_penalty = 5
+    ##print(v,w)
+    indel_penalty = sigma
 
     s = [x[:] for x in [[0]*(len(w)+1)]*(len(v)+1)]
     backtrack = [x[:] for x in [['-']*(len(w)+1)]*(len(v)+1)]
     blosum_lookup_table = make_blosum62()
 
     ## init the top and side columns with indel penalty
+    for i in range(0, len(v)):
+        s[i][0] = -i * sigma
+
+    for j in range(0, len(w)):
+        s[0][j] = -j * sigma
+
 
 
     for i in range(0, len(v)):
@@ -72,7 +78,7 @@ def lcs_backtrack(v, w):
         
     ##pprint(backtrack)
     ##pprint(s)
-    return backtrack
+    return backtrack, s[len(v)][len(w)]
 
 
 def output_lcs(backtrack, v, w, i, j):
@@ -126,18 +132,20 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    w = "ACDF"
-    v = "CDFF"
+    w = "ACC"
+    v = "ADC"
+    sigma = 5
 
-    b = lcs_backtrack(v, w)
+    b, score = lcs_backtrack(v, w, sigma)
 
     r1,r2,r3,lcs = output_lcs(b, v, w, len(v), len(w))
 
-    print(r1)
+    print(score)
     print(r2)
-    print(r3)
-    print("................")
-    print(lcs)
+    print(r1)
+    #print(r3)
+    #print("................")
+    #print(lcs)
 
 
 if __name__ == "__main__":
