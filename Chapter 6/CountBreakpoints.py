@@ -31,7 +31,7 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
 
-    seq = "(+3 +4 +5 -12 -8 -7 -6 +1 +2 +10 +9 -11 +13 +14)"
+    seq = "(-16 -20 +11 +12 -14 -13 -15 -6 -8 -19 -18 -17 -10 +4 -5 -2 +7 -3 +1 -9)"
     seq_as_list = list(map(int, seq.lstrip('(').rstrip(')').split()))
     print (count_breakpoints(seq_as_list))
 
